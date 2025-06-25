@@ -36,22 +36,26 @@ import random
 
 
 # Enhancement2 : track how many time user has rolled the dice
-count = 0
-while True:
-    choice = input("Roll the dice? (y/n):")
+def start():
+    print("Welcome to the Dice Rolling Game!")
+    print("You can roll multiple dice and track how many times you've rolled them.")
 
-    if choice.lower() == "y":
-        count += 1
-        number_of_dice = int(input("How many dice do wanna roll?: "))
-        result = ""
-        for i in range(number_of_dice):
-            dice = random.randint(1, 6)
-            result += f"{dice}" + ("," if i < number_of_dice - 1 else "")
+    count = 0
+    while True:
+        choice = input("Roll the dice? (y/n):")
 
-        print(result)
+        if choice.lower() == "y":
+            count += 1
+            number_of_dice = int(input("How many dice do wanna roll?: "))
+            result = ""
+            for i in range(number_of_dice):
+                dice = random.randint(1, 6)
+                result += f"{dice}" + ("," if i < number_of_dice - 1 else "")
 
-    elif choice.lower() == "n":
-        print(f"Thank you!!. You have rolled the dice {count} times!!")
-        break
-    else:
-        print("Invalid choice")
+            print(result)
+
+        elif choice.lower() == "n":
+            print(f"Thank you!!. You have rolled the dice {count} times!!")
+            break
+        else:
+            print("Invalid choice")
