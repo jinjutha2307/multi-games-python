@@ -2,8 +2,11 @@ from games import (
     dice_rolling_game,
     number_guessing_game,
     rock_paper_scissors,
+    currency_converter,
 )
 from games.quiz_game import quiz_game
+
+from games.qr_code_generator import qr_code_generator
 
 CHOICES = [
     "Exit",
@@ -19,12 +22,14 @@ CHOICES = [
 def main():
     print("Welcome to the Game Hub!\nHere are the available games and services:")
     while True:
-        for i, CHOICES in enumerate(CHOICES, start=1):
-            print(f"{i}. {CHOICES[i]} or 0 to exit")
+
+        for i in range(1, len(CHOICES), 1):
+            print(f"{i}. {CHOICES[i]} ")
+        print("or 0 to exit")
 
         choice = input("Enter the number of your choice: ")
         match choice:
-            case "5":
+            case "0":
                 print("Thank you for playing! Goodbye!")
                 return
             case "1":
@@ -35,6 +40,10 @@ def main():
                 rock_paper_scissors.start()
             case "4":
                 number_guessing_game.start()
+            case "5":
+                currency_converter.start()
+            case "6":
+                qr_code_generator.start()
 
             case _:
                 print("Invalid choice. Please try again.")
